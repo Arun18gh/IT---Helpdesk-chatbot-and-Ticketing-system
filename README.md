@@ -44,7 +44,7 @@ A complete **full-stack web application** that combines **Flask, MongoDB, and Ja
 
 ## 📷 Screenshots (Optional)
 
-> Add screenshots here to visually demonstrate the UI, chatbot, and admin dashboard.
+> <img width="1909" height="1131" alt="Screenshot 2025-07-14 000845" src="https://github.com/user-attachments/assets/3fb2c3f6-8ccb-4d97-9dbe-648290652706" />
 
 ---
 
