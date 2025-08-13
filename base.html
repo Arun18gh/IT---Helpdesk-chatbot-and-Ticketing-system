@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DarkVolt Systems</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js (for analytics page) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="{% if request.endpoint == 'home_page' %}home-bg{% else %}default-bg{% endif %}">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">DarkVolt Systems</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home_page') }}">Home</a></li>
+            {% if current_user.is_authenticated and current_user.role != 'admin' %}
+                <li><a href="{{ url_for('submit_ticket') }}">Submit Ticket</a></li>
+            {% endif %}
+            {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('analytics') }}">Analytics</a></li>
+            {% endif %}
+            {% if current_user.is_authenticated and current_user.role != 'admin' %}
+                <li><a href="{{ url_for('user_tickets') }}">My Tickets</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            {% endif %}
+
+            {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Page Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Chatbot Floating Button (not shown for admin) -->
+    {% if current_user.is_authenticated and current_user.role != 'admin' %}
+    <div id="chatbot-btn" title="Chat with Support">💬</div>
+
+    <!-- Chatbot Window -->
+    <div id="chatbot-box">
+        <div class="chat-header">
+            <span>💬 DVS Assistant</span>
+            <span id="close-chatbot" style="cursor:pointer;">&times;</span>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your issue..." />
+            <button id="send-msg">📨</button>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer>
+        &copy; {{ now().year }} DarkVolt Systems. All Rights Reserved. |
+        <a href="mailto:support@darkvoltsystems.com">support@darkvoltsystems.com</a> |
+        +353 89 435 1768
+    </footer>
+
+    <!-- JS Scripts -->
+    <script type="module" src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+
+
+    <!-- AOS Init -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

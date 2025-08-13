@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero Section -->
+<section style="background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb); padding: 3rem 2rem; text-align: center;">
+  <h2 style="color: white; font-size: 2rem;">Empowering secure tech support for the digital age.</h2>
+  <p style="color: white;">Real-time helpdesk. Smart analytics. Trusted support.</p>
+  <div style="margin-top: 2rem;">
+    {% if current_user.is_authenticated %}
+      {% if current_user.role == 'admin' %}
+        <a href="{{ url_for('dashboard') }}" class="btn" style="background: #fff; color: #111;">📊 Admin Dashboard</a>
+      {% else %}
+        <a href="{{ url_for('submit_ticket') }}" class="btn" style="margin-right: 1rem;">🚀 Submit a Ticket</a>
+        <a href="{{ url_for('user_tickets') }}" class="btn" style="background: #fff; color: #111;">🎫 My Tickets</a>
+      {% endif %}
+    {% else %}
+      <a href="{{ url_for('login') }}" class="btn">🔐 Login</a>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Flash Cards -->
+<div style="background: #f5f5f5; padding: 3rem 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+  <div class="card-flash" data-aos="fade-up">
+    <h3>💡 Smart Ticketing</h3>
+    <p>Organize, track, and solve issues faster with automation.</p>
+  </div>
+  <div class="card-flash" data-aos="fade-up" data-aos-delay="200">
+    <h3>📈 Analytics Dashboard</h3>
+    <p>Visualize ticket trends, volumes, and bottlenecks clearly.</p>
+  </div>
+  <div class="card-flash" data-aos="fade-up" data-aos-delay="400">
+    <h3>🛡️ Security First</h3>
+    <p> Secure ticket handling with role-based access control. </p>
+  </div>
+</div>
+
+<!-- Meet Our Team -->
+<section style="padding: 3rem 1rem; background: linear-gradient(to right, #3f5fe0ff, #40b3e0ff); color: white;">
+  <h2 style="text-align: center;">👥 Meet Our Team</h2>
+  <div class="team-section">
+    <div class="team-card" data-aos="zoom-in">
+      <img src="{{ url_for('static', filename='images/Arun.jpg') }}" alt="Arun Sudhakar">
+      <h3>Arun Sudhakar</h3>
+      <p>Cybersecurity & Web Developer</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonial-section">
+  <h2 style="text-align: center; margin-bottom: 2rem;">💬 What Our Clients Say</h2>
+
+  <div class="testimonial-card" data-aos="fade-right">
+    <img src="{{ url_for('static', filename='images/Athul.jpg') }}" alt="">
+    <h4>Athul Suresh – Infosys</h4>
+    <p>"DarkVolt made our IT operations seamless. Truly efficient."</p>
+  </div>
+
+
+  <div class="testimonial-card" data-aos="fade-left">
+    <img src="{{ url_for('static', filename='images/Biya.jpg') }}" alt="">
+    <h4>Biya Sussan Varughese – TCS</h4>
+    <p>"Professional team and amazing chatbot support system."</p>
+  </div>
+
+  <div class="testimonial-card" data-aos="fade-right">
+    <img src="{{ url_for('static', filename='images/Edwin.jpg') }}" alt="">
+    <h4>Edwin Biju – Wipro</h4>
+    <p>"Impressive dashboards. Loved the UI and quick reports."</p>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section class="partners">
+  <h2>🤝 Our Trusted Partners</h2>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+</section>
+
+{% endblock %}

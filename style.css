@@ -1,0 +1,732 @@
+/* === General Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f1115;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* === Navbar === */
+.navbar {
+  background: #101820;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid cyan;
+}
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: cyan;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.3s ease;
+}
+.nav-links a:hover {
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
+}
+
+/* === Buttons === */
+.btn, .btn-rounded {
+  background: cyan;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  margin: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+.btn-rounded:hover {
+  background: #00e1ff;
+  transform: scale(1.05);
+}
+
+/* === Form Styling === */
+.form-bg {
+  background: #1c1f26;
+  padding: 40px;
+  margin: 30px auto;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+.form-bg h2 {
+  text-align: center;
+  color: cyan;
+  margin-bottom: 20px;
+}
+.form-bg label {
+  display: block;
+  margin: 12px 0 6px;
+}
+.form-bg input,
+.form-bg select,
+.form-bg textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #fff;
+  margin-bottom: 15px;
+}
+.form-bg textarea {
+  height: 120px;
+}
+.form-bg button {
+  width: 100%;
+  font-size: 16px;
+}
+
+/* === Dashboard Cards === */
+.dashboard-container {
+  padding: 2rem;
+}
+.ticket-card {
+  background: #121a24;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+.ticket-card h4 {
+  color: cyan;
+}
+.ticket-card p {
+  color: #ccc;
+}
+
+/* === Analytics Charts === */
+.analytics-page {
+  padding: 3rem;
+  text-align: center;
+}
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+.analytics-grid canvas {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+/* === Contact Page === */
+.contact-container {
+  background: #1a1d22;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 2rem auto;
+  box-shadow: 0 0 16px #00ffff44;
+}
+.contact-container h2 {
+  text-align: center;
+  color: cyan;
+}
+.contact-container label {
+  margin-top: 10px;
+  display: block;
+}
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background: #121212;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+.contact-container button {
+  width: 100%;
+}
+
+/* === Flash Messages === */
+.flash-messages {
+  margin: 10px auto;
+  max-width: 700px;
+}
+.alert {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.alert.success {
+  background-color: #28a745;
+}
+.alert.danger {
+  background-color: #dc3545;
+}
+.alert.info {
+  background-color: #17a2b8;
+}
+
+/* === Home Page === */
+.card-flash {
+  background: #222;
+  color: #fff;
+  padding: 2rem;
+  margin: 10px;
+  width: 260px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 12px #00ffff33;
+  transition: 0.3s;
+}
+.card-flash:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 18px #00ffff99;
+}
+
+/* === Team Section === */
+.team-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.team-card {
+  background: #0e1721;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 0 12px #00ffff55;
+}
+.team-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.team-card h3 {
+  color: cyan;
+}
+
+/* === Testimonials === */
+.testimonial-section {
+  background: #1a1f26;
+  padding: 3rem 1rem;
+}
+.testimonial-card {
+  background: #0e0f11;
+  color: white;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #00ffff44;
+  text-align: center;
+}
+.testimonial-card img {
+  border-radius: 50%;
+  width: 70px;
+  margin-bottom: 10px;
+}
+.testimonial-card h4 {
+  margin-bottom: 6px;
+  color: cyan;
+}
+
+
+/* === Chatbot === */
+#chatbot-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(45deg, #00f7ff, #00ff95);
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 999;
+  box-shadow: 0 0 12px #00f7ff;
+}
+#chatbot-box {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 350px;
+  height: 430px;
+  background: #101820;
+  display: none;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 0 20px cyan;
+  overflow: hidden;
+  z-index: 1000;
+}
+.chat-header {
+  padding: 12px;
+  font-weight: bold;
+  background: #0a0a0a;
+  color: cyan;
+  display: flex;
+  justify-content: space-between;
+}
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+  background: #1a1a1a;
+}
+.chat-input {
+  display: flex;
+  padding: 10px;
+  background: #111;
+}
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #222;
+  color: white;
+  border-radius: 6px;
+}
+.chat-input button {
+  background: cyan;
+  border: none;
+  color: black;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.user-msg, .bot-msg {
+  padding: 8px 12px;
+  margin: 6px 0;
+  max-width: 80%;
+  border-radius: 10px;
+}
+.user-msg {
+  background: cyan;
+  color: black;
+  align-self: flex-end;
+}
+.bot-msg {
+  background: #333;
+  color: white;
+  align-self: flex-start;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 4rem;
+  background: #111;
+  color: #aaa;
+  font-size: 14px;
+}
+footer a {
+  color: cyan;
+  text-decoration: none;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.partners {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #dee5ec;
+  color: #fff;
+}
+
+.partners h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #120f0f;
+}
+
+.partners img {
+  margin: 0 1.5rem;
+  max-height: 70px;
+  width: auto;
+  filter: drop-shadow(2px 2px 4px rgba(230, 219, 219, 0.3));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  vertical-align: middle;
+}
+
+.partners img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1) drop-shadow(0 0 10px #0ff);
+}
+.badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.badge.solved {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.badge.pending {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  margin: 0 5px;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.btn-icon:hover {
+  transform: scale(1.2);
+  color: #00f7ff;
+}
+.dashboard-container {
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 15px;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    background: #141414;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ticket-table th,
+.ticket-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.ticket-table th {
+    background: #0f172a;
+    color: #00ffff;
+}
+
+.ticket-table tr:hover {
+    background-color: #262626;
+}
+
+.btn-rounded {
+    background-color: #ff0055;
+    padding: 6px 12px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn-rounded:hover {
+    background-color: #e6004d;
+}
+/* === Shared Table Styling === */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #121212;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.styled-table thead {
+    background-color: #202020;
+    color: #ffcc00;
+}
+
+.styled-table th, .styled-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+    font-size: 0.95rem;
+}
+
+.styled-table tr:hover {
+    background-color: #1f1f1f;
+}
+
+.table-container {
+    padding: 20px 30px;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 6px;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.btn-info {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #26c6da;
+}
+
+.btn-success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #66bb6a;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #ef5350;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #868e96;
+}
+
+/* === Ticket Box === */
+.ticket-box {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* === Section Titles === */
+.section-title {
+    font-size: 1.8rem;
+    margin: 20px 0 10px 30px;
+    color: #ffcc00;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.form-field {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.input, textarea, select {
+    color: #000 !important;       /* Force black input text */
+    background-color: #fff !important; /* Optional: white background */
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    color: #000 !important;              /* ✅ Force black text */
+    background-color: #ffffff !important; /* ✅ White background */
+    caret-color: #000;                   /* Cursor color */
+    border: 1px solid #ccc;
+}
+
+::placeholder {
+    color: #888 !important;              /* ✅ Make placeholder visible too */
+}
+input[readonly] {
+    color: #000 !important;           /* Text color for readonly inputs */
+    background-color: #f5f5f5 !important; /* Light gray background for contrast */
+    border: 1px solid #ccc;
+}
+/* === Chatbot Styles (Upgraded) === */
+#chatbot-box {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  width: 360px;
+  height: 480px;
+  background: #111;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+  overflow: hidden;
+  z-index: 999;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.chat-header {
+  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #1c1c1c;
+  color: white;
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #00ffff;
+  border-radius: 3px;
+}
+
+.message {
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 80%;
+  line-height: 1.4;
+  word-wrap: break-word;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+.message.user {
+  background-color: #00ffff;
+  color: black;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+.message.bot {
+  background-color: #2c2c2c;
+  color: #eee;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-input {
+  display: flex;
+  padding: 12px;
+  border-top: 1px solid #333;
+  background-color: #fff;
+  align-items: center;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+}
+
+.chat-input button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.chat-input button:hover {
+  transform: scale(1.1);
+}
+
+/* Chatbot floating button */
+#chatbot-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 998;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+.testimonial-card img {
+    width: 80px;              /* Exact photo size */
+    height: 80px;
+    border-radius: 50%;       /* Makes image circular */
+    object-fit: cover;        /* Ensures no distortion */
+    margin-bottom: 1rem;
+    border: 2px solid cyan;   /* Optional border for visibility */
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.5);
+}

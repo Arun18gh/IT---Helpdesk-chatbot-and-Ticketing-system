@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="analytics-page">
+  <h2>📊 Ticket Analytics</h2>
+
+  {% if no_data %}
+    <p>No ticket data available yet. Submit a few tickets to see trends!</p>
+  {% else %}
+    <div class="chart-container">
+      <canvas id="departmentChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="priorityChart"></canvas>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+const deptData = {{ dept_data | tojson }};
+const priorityData = {{ priority_data | tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/chart-logic.js') }}"></script>
+{% endblock %}

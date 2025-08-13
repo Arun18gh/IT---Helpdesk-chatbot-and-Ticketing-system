@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<section style="padding: 2rem;">
+  <h2 style="text-align: center;">🎛️ Admin Dashboard – All Tickets</h2>
+
+  {% if tickets %}
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
+      {% for ticket in tickets %}
+        <div style="background: #f7f7f7; border-radius: 8px; padding: 1.5rem; width: 320px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); color: #111;">
+          <p><strong>👤 User:</strong> {{ ticket.user }}</p>
+          <p><strong>📧 Email:</strong> {{ ticket.email }}</p>
+          <p><strong>📝 Title:</strong> {{ ticket.issue_title }}</p>
+          <p><strong>🧾 Description:</strong> {{ ticket.issue_detail }}</p>
+          <p><strong>⚠️ Priority:</strong> {{ ticket.priority }}</p>
+          <p><strong>🏢 Department:</strong> {{ ticket.department }}</p>
+          <p><strong>⏱️ Created At:</strong> {{ ticket.created_at }}</p>
+          <p><strong>Status:</strong> {{ ticket.status if ticket.status else 'Open' }}</p>
+
+          <div style="margin-top: 1rem; display: flex; justify-content: space-between;">
+            <a href="{{ url_for('view_ticket', ticket_id=ticket.ticket_code) }}" style="background: #007bff; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;">View</a>
+            <a href="{{ url_for('solve_ticket', ticket_code=ticket.ticket_code) }}" style="background: #28a745; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;">Solve</a>
+            <a href="{{ url_for('delete_ticket', ticket_code=ticket.ticket_code) }}" style="background: #dc3545; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;">Delete</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p style="text-align: center;">No tickets available.</p>
+  {% endif %}
+</section>
+{% endblock %}

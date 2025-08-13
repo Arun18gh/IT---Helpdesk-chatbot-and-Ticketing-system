@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section style="padding: 2rem; max-width: 700px; margin: auto; background: #fdfdfd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); color: #000;">
+  <h2 style="text-align:center;">📄 Ticket Details</h2>
+
+  <p><strong>👤 User:</strong> {{ ticket.user }}</p>
+  <p><strong>📧 Email:</strong> {{ ticket.email }}</p>
+  <p><strong>📝 Issue Title:</strong> {{ ticket.issue_title }}</p>
+  <p><strong>🧾 Description:</strong> {{ ticket.issue_detail }}</p>
+  <p><strong>⚠️ Priority:</strong> {{ ticket.priority }}</p>
+  <p><strong>🏢 Department:</strong> {{ ticket.department }}</p>
+  <p><strong>⏱️ Created At:</strong> {{ ticket.created_at }}</p>
+  <p><strong>Status:</strong> {{ ticket.status if ticket.status else 'Open' }}</p>
+
+  {% if ticket.attachment %}
+    <p><strong>📎 Attachment:</strong> 
+      <a href="{{ url_for('uploaded_file', filename=ticket.attachment) }}" style="color: #007bff;">Download</a>
+    </p>
+  {% endif %}
+
+  {% if current_user.is_authenticated and current_user.role == 'admin' %}
+    <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+      <a href="{{ url_for('solve_ticket', ticket_code=ticket.ticket_code) }}" style="background: #28a745; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none;">✅ Mark as Solved</a>
+      <a href="{{ url_for('delete_ticket', ticket_code=ticket.ticket_code) }}" style="background: #dc3545; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none;">🗑️ Delete</a>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | DarkVolt Helpdesk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-box {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+      width: 380px;
+      animation: fadeIn 0.7s ease-out;
+    }
+
+    .register-box h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .register-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .register-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #ff6600;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    .register-box button:hover {
+      background: #ff8533;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .error-msg {
+      color: yellow;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <form method="POST" class="register-box">
+    <h2>Create Your Helpdesk Account</h2>
+
+    <input type="text" name="username" placeholder="Email Address" required>
+    <input type="password" name="password" placeholder="Create Password" required>
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+    <button type="submit">📝 Register</button>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="error-msg">
+          {% for category, message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <p style="text-align:center; margin-top:1rem;">
+      Already have an account? <a href="{{ url_for('login') }}" style="color:#00d2ff;">Login here</a>
+    </p>
+  </form>
+
+</body>
+</html>

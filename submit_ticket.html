@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section style="padding: 2rem; background: #111; min-height: 100vh;">
+  <h2 style="color: white; text-align: center;">📝 Submit a New Ticket</h2>
+
+  <form method="POST" enctype="multipart/form-data"
+        style="max-width: 800px; margin: 2rem auto; background: #f5f5f5; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); color: #000;">
+
+    <div style="margin-bottom: 1rem;">
+      <label><strong>Your Name:</strong></label>
+      <input type="text" name="user"
+             style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" required>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <label><strong>Email:</strong></label>
+      <input type="email" name="email"
+             style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" required>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <label><strong>Issue Title:</strong></label>
+      <input type="text" name="issue_title" placeholder="Enter issue title"
+             style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" required>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <label><strong>Description:</strong></label>
+      <textarea name="issue_detail" rows="4" placeholder="Describe the issue"
+                style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" required></textarea>
+    </div>
+
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <div style="flex: 1;">
+        <label><strong>Department:</strong></label>
+        <select name="department" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" required>
+          <option value="">--Select--</option>
+          <option>IT Support</option>
+          <option>Development</option>
+          <option>HR</option>
+          <option>Finance</option>
+        </select>
+      </div>
+
+      <div style="flex: 1;">
+        <label><strong>Priority:</strong></label>
+        <select name="priority" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" required>
+          <option value="">--Select--</option>
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin-top: 1rem;">
+      <label><strong>Attachment (optional):</strong></label>
+      <input type="file" name="file" style="width: 100%; padding: 10px;">
+    </div>
+
+    <div style="margin-top: 2rem; text-align: center;">
+      <button type="submit"
+              style="padding: 12px 20px; background: #007bff; color: white; font-weight: bold; border: none; border-radius: 6px;">
+        📩 Submit Ticket
+      </button>
+    </div>
+
+  </form>
+</section>
+
+{% endblock %}
